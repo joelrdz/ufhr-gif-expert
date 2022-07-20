@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const AddCategory = ({ setCategories }) => {
+export const AddCategory = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = ({ target }) => {
@@ -11,7 +11,8 @@ export const AddCategory = ({ setCategories }) => {
     e.preventDefault();
     if (inputValue.trim().length <= 1) return;
 
-    setCategories(c => [inputValue, ...c]);
+    // setCategories(c => [inputValue, ...c]);
+    onNewCategory( inputValue.trim() );
     setInputValue('');
   };
 
